@@ -1,6 +1,6 @@
-# xhs-product-poster
+# social-media-cover
 
-Generate Xiaohongshu (RedNote) product covers as **1080×1440 PNGs by writing HTML and screenshotting it with Chrome** — not by AI image generation.
+Generate social media cover images — Xiaohongshu (RedNote), Douyin, Bilibili, WeChat — as **1080×1440 PNGs by writing HTML and screenshotting it with Chrome**, not by AI image generation.
 
 [中文文档](./README.zh.md)
 
@@ -39,7 +39,7 @@ The tradeoff: it burns more tokens than a text-to-image call, because the agent 
 ### Option 1 — one line (recommended)
 
 ```bash
-npx skills add EwingYangs/xhs-product-poster
+npx skills add EwingYangs/social-media-cover
 ```
 
 ### Option 2 — Claude Code plugin marketplace
@@ -47,16 +47,16 @@ npx skills add EwingYangs/xhs-product-poster
 In Claude Code:
 
 ```
-/plugin marketplace add EwingYangs/xhs-product-poster
-/plugin install xhs-product-poster@xhs-product-poster
+/plugin marketplace add EwingYangs/social-media-cover
+/plugin install social-media-cover@social-media-cover
 ```
 
-Or run `/plugin marketplace add EwingYangs/xhs-product-poster`, then pick **Browse and install plugins** from the menu.
+Or run `/plugin marketplace add EwingYangs/social-media-cover`, then pick **Browse and install plugins** from the menu.
 
 ### Option 3 — manual
 
 ```bash
-git clone https://github.com/EwingYangs/xhs-product-poster.git ~/.claude/skills/xhs-product-poster
+git clone https://github.com/EwingYangs/social-media-cover.git ~/.claude/skills/social-media-cover
 ```
 
 Works with any agent that reads `SKILL.md` — Claude Code, Codex, Cursor, or your own harness. For other tools, point them at the folder or copy `SKILL.md` into your prompt.
@@ -64,7 +64,7 @@ Works with any agent that reads `SKILL.md` — Claude Code, Codex, Cursor, or yo
 ### Verify your setup
 
 ```bash
-cd ~/.claude/skills/xhs-product-poster
+cd ~/.claude/skills/social-media-cover
 bash scripts/render.sh assets/template-cover.html /tmp/out.png && open /tmp/out.png
 ```
 
@@ -125,7 +125,7 @@ This is **not** an AI image generator. The whole point is embedding a *real* pro
 
 Pick screenshots with high information density (card galleries beat tables beat plain text), and crop to the busiest region so the text stays readable at poster scale.
 
-## Compliance notes (Xiaohongshu review)
+## Compliance notes (Xiaohongshu review as an example)
 
 The bundled `SKILL.md` encodes rules learned from getting posts rejected:
 

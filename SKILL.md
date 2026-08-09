@@ -1,13 +1,13 @@
 ---
-name: xhs-product-poster
-description: Generate Xiaohongshu/RedNote product marketing covers and carousel images as 1080×1440 PNGs by writing single-file HTML and screenshotting it with Chrome — not by AI image generation. Use when the user wants product covers, posters, mockup images, or a visually consistent image series for a product line. Triggers on 小红书宣传图, 产品封面, 做图, 海报, mockup 配图, cover image, product poster.
+name: social-media-cover
+description: Generate social media cover images (Xiaohongshu/RedNote, Douyin, Bilibili, WeChat) as 1080×1440 PNGs by writing single-file HTML and screenshotting it with Chrome — not by AI image generation. Use when the user wants covers, posters, mockup images, or a visually consistent image series. Triggers on 自媒体封面, 小红书封面, 抖音封面, 产品封面, 做图, 海报, mockup 配图, cover image, thumbnail.
 ---
 
-# 小红书产品宣传图（HTML → PNG）
+# 自媒体封面图（HTML → PNG）
 
 ## 核心原则
 
-**不用 AI 生图画海报主体。** 海报 = 单文件 HTML + CSS，用 Chrome 截图输出 1080×1440 PNG。
+**不用 AI 生图画封面主体。** 封面 = 单文件 HTML + CSS，用 Chrome 截图输出 1080×1440 PNG（3:4，小红书 / 抖音图文 / B站动态通用）。
 
 为什么不用 AI 生图：
 
@@ -124,7 +124,7 @@ start "$FILE"         # Windows
 | 截图整图塞进 mockup → 文字小到不可读 | `width:126%~150%` + `object-position` 裁最有信息量的区域 |
 | 用低清 logo 图片放大 → 糊 | 优先用官方 SVG，或用 CSS 画（圆角方块 + 粗体字） |
 | logo 自带圆角底色还套一层色块 | 用 `.mk.full` 整块铺满，阴影走 `drop-shadow` 贴合圆角 |
-| 直接套设计系统默认风格（瑞士风） | 小红书要「活泼 SaaS 风」：渐变底 / 胶囊 / 气泡 / 星光 |
+| 直接套设计系统默认风格（瑞士风） | 内容平台要「活泼 SaaS 风」：渐变底 / 胶囊 / 气泡 / 星光 |
 | 完全复刻用户发的参考图 | 版式可借鉴，标题金句必须原创 |
 | MacBook mockup 画成 16:8 带鱼屏 | 屏幕内容区 16:10、屏幕别撑满画布、底座比屏幕略宽 |
 | 页码写死 /8 但实际只发 3 张 | 页码 = 实际图数；尾页钩子不能指向不存在的下一页 |
@@ -134,7 +134,7 @@ start "$FILE"         # Windows
 | 高亮块用 `::before` + `z-index:-1` 不显示 | 被父级背景吞掉。改用 `background:linear-gradient(transparent 56%, 高亮色 56% 94%, transparent 94%)` 或直接给 span 实底 |
 | 文案 AI 味重 | 禁 emoji 匀速排比、禁编造数字；用认知翻转开头、金句结尾 |
 
-## 合规红线（小红书审核）
+## 合规红线（以小红书审核为例）
 
 - 禁用词：**自动同步、自动抓取、自动获取**。换成「一键落地 / 一键收进 / 设置一次后续自己进来 / 智能归类」
 - 图片和文案**不放外链域名、不放二维码**。真实界面截图里常带 URL，务必裁掉或用取样底色遮盖：

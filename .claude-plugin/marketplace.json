@@ -1,18 +1,20 @@
 {
-  "name": "xhs-product-poster",
+  "name": "social-media-cover",
   "owner": {
     "name": "EwingYangs"
   },
   "metadata": {
-    "description": "Generate Xiaohongshu (RedNote) product covers as 1080x1440 PNGs by writing HTML and screenshotting with Chrome — not AI image generation. Exact Chinese text, precise logos, real product screenshots inside device mockups."
+    "description": "Generate social media cover images (Xiaohongshu, Douyin, Bilibili, WeChat) as 1080x1440 PNGs by writing HTML and screenshotting with Chrome — not AI image generation. Exact Chinese text, precise logos, real product screenshots inside device mockups."
   },
   "plugins": [
     {
-      "name": "xhs-product-poster",
-      "description": "小红书产品封面生成：写 HTML 再截图，中文零错字、logo 精确、可嵌真实产品截图。含 6 个风格模板与 MacBook/iPad/iPhone mockup 库。",
+      "name": "social-media-cover",
+      "description": "自媒体封面图生成（小红书 / 抖音 / B站 / 公众号）：写 HTML 再截图，中文零错字、logo 精确、可嵌真实产品截图。含 6 个风格模板与 MacBook/iPad/iPhone mockup 库。",
       "source": "./",
       "strict": false,
-      "skills": ["./"]
+      "skills": [
+        "./"
+      ]
     }
   ]
 }

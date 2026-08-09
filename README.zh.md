@@ -1,6 +1,6 @@
-# xhs-product-poster
+# social-media-cover
 
-小红书产品封面生成 skill。**写 HTML 再用 Chrome 截图**输出 1080×1440 PNG，不用 AI 生图。
+自媒体封面图生成 skill —— 小红书、抖音、B站、公众号通用。**写 HTML 再用 Chrome 截图**输出 1080×1440 PNG，不用 AI 生图。
 
 [English](./README.md)
 
@@ -39,7 +39,7 @@
 ### 方式一 —— 一行搞定（推荐）
 
 ```bash
-npx skills add EwingYangs/xhs-product-poster
+npx skills add EwingYangs/social-media-cover
 ```
 
 ### 方式二 —— Claude Code 插件市场
@@ -47,8 +47,8 @@ npx skills add EwingYangs/xhs-product-poster
 在 Claude Code 里执行：
 
 ```
-/plugin marketplace add EwingYangs/xhs-product-poster
-/plugin install xhs-product-poster@xhs-product-poster
+/plugin marketplace add EwingYangs/social-media-cover
+/plugin install social-media-cover@social-media-cover
 ```
 
 或者只跑第一行，然后在菜单里选 **Browse and install plugins** 点装。
@@ -56,7 +56,7 @@ npx skills add EwingYangs/xhs-product-poster
 ### 方式三 —— 手动
 
 ```bash
-git clone https://github.com/EwingYangs/xhs-product-poster.git ~/.claude/skills/xhs-product-poster
+git clone https://github.com/EwingYangs/social-media-cover.git ~/.claude/skills/social-media-cover
 ```
 
 任何能读 `SKILL.md` 的 agent 都能用 —— Claude Code、Codex、Cursor 或你自己的框架。其他工具直接把目录指过去，或把 `SKILL.md` 内容塞进 prompt 即可。
@@ -64,7 +64,7 @@ git clone https://github.com/EwingYangs/xhs-product-poster.git ~/.claude/skills/
 ### 验证环境
 
 ```bash
-cd ~/.claude/skills/xhs-product-poster
+cd ~/.claude/skills/social-media-cover
 bash scripts/render.sh assets/template-cover.html /tmp/out.png && open /tmp/out.png
 ```
 
@@ -125,7 +125,7 @@ iPad   高 = (W2 - 26)/0.6985 + 26
 
 挑图原则：选信息密度高的界面（卡片画廊 > 表格 > 纯文字），裁到最密的那块区域，保证海报尺寸下文字还能看清。
 
-## 合规提示
+## 合规提示（以小红书审核为例）
 
 `SKILL.md` 里沉淀了一些实际被打回后总结的规则：
 
