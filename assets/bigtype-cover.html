@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>风格B · 大字报撞色</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;900&family=Noto+Serif+SC:wght@900&display=swap">
+  <style>
+    :root { --red:#FF2442; --purple:#6D28D9; --cream:#FFF6E9; --ink:#141118; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#333; font-family: "Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;
+           -webkit-font-smoothing:antialiased; }
+    .poster { position:relative; width:1080px; height:1440px; overflow:hidden;
+      background:var(--cream); color:var(--ink); }
+    .frame { position:absolute; inset:26px; border:5px solid var(--ink); z-index:1; }
+    .content { position:relative; z-index:2; height:100%; display:flex;
+      flex-direction:column; padding:88px 84px 78px; }
+
+    .kicker { display:flex; justify-content:space-between; align-items:center;
+      font-weight:900; font-size:30px; letter-spacing:.28em; }
+    .kicker .r { color:var(--red); }
+
+    .big { margin-top:70px; font-family: "Noto Serif SC","Songti SC","SimSun","Source Han Serif SC",serif; font-weight:900;
+      font-size:170px; line-height:1.14; letter-spacing:.02em; }
+    .big .strike { position:relative; display:inline-block; color:#9a92a8; }
+    .big .strike::after { content:''; position:absolute; left:-4%; right:-4%;
+      top:52%; height:14px; background:var(--red); transform:rotate(-2deg); }
+    .big .red { color:var(--red); }
+    .big .purple { color:var(--purple); }
+
+    .mid { margin-top:56px; font-size:42px; font-weight:700; line-height:1.6; }
+    .mid b { background:var(--ink); color:var(--cream); padding:2px 14px; }
+
+    .stamps { margin-top:auto; display:flex; gap:20px; flex-wrap:wrap; }
+    .stamp { border:4px solid var(--ink); padding:16px 26px; font-weight:900;
+      font-size:34px; background:#fff; box-shadow:8px 8px 0 var(--ink); }
+    .stamp.hot { background:var(--red); color:#fff; }
+    .stamp.pur { background:var(--purple); color:#fff; }
+
+    .foot { margin-top:54px; display:flex; justify-content:space-between; align-items:center;
+      border-top:5px solid var(--ink); padding-top:26px; }
+    .foot .l { font-weight:900; font-size:32px; }
+    .foot .l .red { color:var(--red); }
+    .foot .l .purple { color:var(--purple); }
+    .foot .page { font-weight:900; font-size:32px; background:var(--ink); color:var(--cream);
+      padding:6px 24px; }
+    .seal { position:absolute; right:96px; top:400px; width:150px; height:150px;
+      border:6px solid var(--red); border-radius:50%; display:flex; align-items:center;
+      justify-content:center; transform:rotate(12deg); color:var(--red);
+      font-weight:900; font-size:36px; line-height:1.25; text-align:center; opacity:.9; }
+  </style>
+</head>
+<body>
+  <section class="poster">
+    <div class="frame"></div>
+    <div class="content">
+      <div class="kicker"><span>OBSIDIAN 插件实测</span><span class="r">小红书专用</span></div>
+
+      <h1 class="big">
+        收藏<span class="strike">吃灰</span><br>
+        不如<span class="red">落地</span><br>
+        进<span class="purple">知识库</span>
+      </h1>
+
+      <div class="seal">真实<br>界面</div>
+
+      <p class="mid">刷到的每条干货，变成<b>本地 Markdown</b>，<br>图片存进硬盘，AI 帮你归好类。</p>
+
+      <div class="stamps">
+        <span class="stamp hot">一键落地本地</span>
+        <span class="stamp">图片永不失效</span>
+        <span class="stamp pur">AI 智能归类</span>
+        <span class="stamp">免费收 100 篇</span>
+      </div>
+
+      <div class="foot">
+        <span class="l"><span class="red">小红书</span> → <span class="purple">Obsidian</span></span>
+        <span class="page">1/3</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

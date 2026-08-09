@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>风格C · 暗黑霓虹玻璃</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;900&display=swap">
+  <style>
+    :root { --red:#FF3B5C; --purple:#A78BFA; --purple-hot:#8B5CF6; --ink:#0d0a14; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#000; font-family: "Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;
+           -webkit-font-smoothing:antialiased; }
+    .poster { position:relative; width:1080px; height:1440px; overflow:hidden;
+      background:
+        radial-gradient(ellipse 800px 560px at 80% -5%, rgba(139,92,246,.38), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 0% 45%, rgba(255,59,92,.18), transparent 60%),
+        radial-gradient(ellipse 900px 600px at 50% 110%, rgba(139,92,246,.30), transparent 65%),
+        var(--ink);
+      color:#f4f1fb; }
+    .grid { position:absolute; inset:0; opacity:.16;
+      background-image:
+        linear-gradient(rgba(167,139,250,.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,.5) 1px, transparent 1px);
+      background-size:72px 72px;
+      -webkit-mask-image:linear-gradient(to bottom, black 0 35%, transparent 75%); }
+    .content { position:relative; z-index:2; height:100%; display:flex;
+      flex-direction:column; padding:60px 60px 44px; }
+
+    .top { display:flex; justify-content:space-between; align-items:center; }
+    .chip { display:flex; align-items:center; gap:12px; border:1.5px solid rgba(167,139,250,.5);
+      background:rgba(139,92,246,.12); border-radius:999px; padding:12px 26px;
+      font-size:27px; font-weight:700; color:#d8ccff;
+      box-shadow:0 0 24px rgba(139,92,246,.25); }
+    .chip .led { width:12px; height:12px; border-radius:50%; background:#22e39c;
+      box-shadow:0 0 12px #22e39c; }
+    .page { font-weight:700; font-size:27px; color:#bcb0dd; }
+
+    .title { margin-top:44px; font-weight:900; font-size:94px; line-height:1.26; }
+    .title .red { color:var(--red); text-shadow:0 0 40px rgba(255,59,92,.55); }
+    .title .neon { color:var(--purple);
+      text-shadow:0 0 34px rgba(139,92,246,.9), 0 0 80px rgba(139,92,246,.5); }
+    .sub { margin-top:20px; font-size:33px; font-weight:500; color:#c3b8e2; line-height:1.55; }
+    .sub b { color:#fff; }
+
+    /* 玻璃卡 + 截图 */
+    .glass { margin-top:32px; position:relative; border-radius:28px; padding:22px;
+      background:rgba(255,255,255,.06);
+      border:1.5px solid rgba(255,255,255,.16);
+      backdrop-filter:blur(10px);
+      box-shadow:0 40px 90px -30px rgba(0,0,0,.8), 0 0 60px rgba(139,92,246,.18); }
+    .glass::before { content:''; position:absolute; left:26px; right:26px; top:0;
+      height:1.5px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent); }
+    .shot { border-radius:16px; overflow:hidden; aspect-ratio:16/8.6; background:#17131f; }
+    .shot img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .glass .cap { display:flex; justify-content:space-between; align-items:center;
+      margin-top:16px; font-size:25px; font-weight:700; color:#cfc4ec; }
+    .glass .cap .lock { color:#22e39c; }
+
+    /* 能力霓虹标签 */
+    .neontags { margin-top:26px; display:flex; flex-wrap:wrap; gap:16px; justify-content:center; }
+    .nt { border-radius:14px; padding:14px 24px; font-weight:900; font-size:30px;
+      border:1.5px solid; }
+    .nt.p { color:#d8ccff; border-color:rgba(167,139,250,.65); background:rgba(139,92,246,.14);
+      box-shadow:0 0 20px rgba(139,92,246,.25), inset 0 0 20px rgba(139,92,246,.10); }
+    .nt.r { color:#ffc2cd; border-color:rgba(255,59,92,.6); background:rgba(255,59,92,.12);
+      box-shadow:0 0 20px rgba(255,59,92,.2), inset 0 0 20px rgba(255,59,92,.08); }
+    .nt.w { color:#f4f1fb; border-color:rgba(255,255,255,.35); background:rgba(255,255,255,.06); }
+
+    .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:center;
+      font-size:28px; font-weight:700; color:#bcb0dd; }
+    .foot b { color:var(--purple); }
+  </style>
+</head>
+<body>
+  <section class="poster">
+    <div class="grid"></div>
+    <div class="content">
+      <div class="top">
+        <div class="chip"><span class="led"></span>LOCAL-FIRST · MARKDOWN</div>
+        <div class="page">1/3</div>
+      </div>
+
+      <h1 class="title">
+        你刷过的<span class="red">小红书</span><br>
+        值得一个<span class="neon">知识库</span>
+      </h1>
+
+      <p class="sub">收藏、点赞、图文视频，落地成<b>本地 Markdown</b>，<br>在 Obsidian 里长成你的第二大脑。</p>
+
+      <div class="glass">
+        <div class="shot"><img src="demo-screenshot.png" alt="Obsidian 中的小红书收藏画廊"></div>
+        <div class="cap"><span>RedNote → Obsidian · 真实界面</span><span class="lock">● 数据在本地</span></div>
+      </div>
+
+      <div class="neontags">
+        <span class="nt p">一键落地本地</span>
+        <span class="nt r">图片永不失效</span>
+        <span class="nt p">AI 智能归类</span>
+        <span class="nt w">断网也能看</span>
+      </div>
+
+      <div class="foot">
+        <span>小红书 → <b>Obsidian</b></span>
+        <span>免费收 100 篇</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

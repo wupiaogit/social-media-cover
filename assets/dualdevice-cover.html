@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>商品图 03 · 视频逐字稿 · 图文识别</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+  <style>
+    :root { --red:#FF2442; --red-deep:#C4102A; --nk:#191919; --ink:#17181c; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#333; font-family: "Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;
+           -webkit-font-smoothing:antialiased; }
+
+    .poster { position:relative; width:1080px; height:1440px; overflow:hidden;
+      background:
+        radial-gradient(ellipse 900px 600px at 88% 6%, rgba(255,36,66,.16), transparent 60%),
+        radial-gradient(ellipse 800px 700px at 6% 60%, rgba(255,36,66,.10), transparent 60%),
+        linear-gradient(165deg,#fdf9f9 0%,#faf1f1 50%,#f6e8e8 100%);
+      color:var(--ink); }
+    .content { position:relative; z-index:2; height:100%; display:flex;
+      flex-direction:column; padding:52px 58px 40px; }
+
+    .head { display:flex; justify-content:space-between; align-items:center; }
+    .badge { display:flex; align-items:center; gap:14px; background:var(--nk);
+      border-radius:999px; padding:14px 30px; font-size:30px; font-weight:700; color:#fff; }
+    .badge .k { color:var(--red); font-weight:900; }
+    .real { background:var(--red); color:#fff; font-weight:900; font-size:28px;
+      border-radius:999px; padding:12px 28px; }
+
+    .title { margin-top:22px; font-weight:900; font-size:82px; line-height:1.2; color:var(--ink); }
+    .title .box { display:inline-block; background:var(--red); color:#fff;
+      border-radius:14px; padding:2px 20px 8px; box-shadow:8px 8px 0 rgba(196,16,42,.28); }
+
+    .sub { margin-top:18px; font-size:31px; font-weight:500; color:#3c3744; line-height:1.5; }
+    .sub b { color:var(--red); font-weight:900; }
+
+    /* ---- 设备同框 ---- */
+    .stage { position:relative; flex:none; margin-top:22px; height:486px; }
+    .laptop { position:absolute; left:0; top:0; width:626px; z-index:1; }
+    .lap-screen { position:relative; background:#101014;
+      border-radius:18px 18px 0 0; padding:11px 11px 13px;
+      box-shadow:0 40px 70px -28px rgba(120,40,60,.45); }
+    .lap-cam { position:absolute; top:4px; left:50%; transform:translateX(-50%);
+      width:7px; height:7px; border-radius:50%; background:#2c2c33; }
+    .lap-shot { border-radius:9px; overflow:hidden; background:#f6f6f8; aspect-ratio:16/10; }
+    .lap-shot img { width:100%; height:100%; object-fit:cover; object-position:left top; display:block; }
+    .lap-base { position:relative; margin:0 28px; height:19px;
+      background:linear-gradient(#eceef2,#c3c6cf 70%,#9ea1ab); border-radius:2px 2px 12px 12px; }
+    .lap-base::before { content:''; position:absolute; left:50%; top:0; transform:translateX(-50%);
+      width:118px; height:8px; background:#aab0ba; border-radius:0 0 10px 10px; }
+
+    .ipad { position:absolute; right:0; top:0; width:302px; z-index:2; }
+    .ipad-body { position:relative; background:#1d1d1f; border-radius:32px; padding:13px;
+      box-shadow:0 44px 76px -26px rgba(120,40,60,.5); }
+    .ipad-cam { position:absolute; top:6px; left:50%; transform:translateX(-50%);
+      width:7px; height:7px; border-radius:50%; background:#3a3a3c; }
+    .ipad-screen { border-radius:21px; overflow:hidden; background:#fff; aspect-ratio:1668/2388; }
+    .ipad-screen img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+
+    .devtag { position:absolute; z-index:4; background:#fff; border-radius:999px;
+      padding:9px 22px; font-size:24px; font-weight:900; color:var(--nk);
+      box-shadow:0 12px 26px -14px rgba(120,40,60,.5); }
+    .devtag.mac { left:28px; top:434px; }
+    .devtag.pad { right:14px; top:434px; background:var(--nk); color:#fff; }
+
+    .feats { flex:none; margin-top:20px; display:flex; flex-direction:column; gap:13px; }
+    .feat { display:flex; align-items:center; gap:22px; background:rgba(255,255,255,.95);
+      border-radius:22px; padding:14px 26px; box-shadow:0 14px 30px -18px rgba(120,60,70,.32); }
+    .feat .no { flex:none; width:48px; height:48px; border-radius:50%;
+      background:rgba(255,36,66,.12); color:var(--red); font-weight:900; font-size:28px;
+      display:flex; align-items:center; justify-content:center; }
+    .feat .tx { font-size:29px; font-weight:700; color:#26222c; line-height:1.4; }
+    .feat .tx small { display:block; font-size:22px; font-weight:500; color:#6d6a64; margin-top:4px; }
+    .feat.hot { background:linear-gradient(150deg,#ff4d66,#e01734); }
+    .feat.hot .no { background:rgba(255,255,255,.24); color:#fff; }
+    .feat.hot .tx { color:#fff; }
+    .feat.hot .tx small { color:#ffdde2; }
+
+    .foot { margin-top:auto; display:flex; justify-content:space-between; align-items:center; }
+    .foot .l { font-size:26px; font-weight:900; color:var(--red); }
+    .foot .r { font-size:26px; font-weight:700; color:#6d6a64; }
+  </style>
+</head>
+<body>
+  <section class="poster">
+    <div class="content">
+
+      <div class="head">
+        <div class="badge"><span class="k">能力</span>视频逐字稿 · 图文识别</div>
+        <div class="real">真实界面</div>
+      </div>
+
+      <h1 class="title">
+        视频和图集<br>
+        进库就<span class="box">变成字</span>
+      </h1>
+
+      <p class="sub">十分钟的视频给你 <b>要点 + 全文</b>，图集里的字逐张识别，翻旧收藏不用再重看一遍。</p>
+
+      <div class="stage">
+        <div class="laptop">
+          <div class="lap-screen">
+            <div class="lap-cam"></div>
+            <div class="lap-shot"><img src="mac-transcript.png" alt="Notion 中的视频播放器与逐字稿"></div>
+          </div>
+          <div class="lap-base"></div>
+        </div>
+        <div class="devtag mac">桌面 · 逐字稿</div>
+
+        <div class="ipad">
+          <div class="ipad-body">
+            <div class="ipad-cam"></div>
+            <div class="ipad-screen"><img src="ipad-ocr.png" alt="Notion 中的图片文字识别"></div>
+          </div>
+        </div>
+        <div class="devtag pad">平板 · 图片文字</div>
+      </div>
+
+      <div class="feats">
+        <div class="feat hot">
+          <div class="no">1</div>
+          <div class="tx">视频逐字稿<small>要点 + 整理后全文，想引用哪句直接搜</small></div>
+        </div>
+        <div class="feat">
+          <div class="no">2</div>
+          <div class="tx">图集文字识别<small>攻略图、清单图逐张认字，图里的内容也能检索</small></div>
+        </div>
+        <div class="feat">
+          <div class="no">3</div>
+          <div class="tx">视频嵌进笔记<small>原片点开就播，不用跳回小红书</small></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span class="l">小红书 → Notion</span>
+        <span class="r">桌面 / 平板 / 手机，打开 Notion 都在</span>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

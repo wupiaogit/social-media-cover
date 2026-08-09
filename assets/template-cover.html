@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>RedNote → Obsidian · 小红书宣传封面打样 v2</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap">
+  <style>
+    :root {
+      --red: #FF2442;
+      --purple: #7C3AED;
+      --purple-deep: #6D28D9;
+      --purple-light: #A78BFA;
+      --ink: #17181c;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #333; font-family: "Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;
+           -webkit-font-smoothing: antialiased; }
+
+    .poster { position: relative; width: 1080px; height: 1440px; overflow: hidden;
+      background:
+        radial-gradient(ellipse 900px 600px at 85% 8%, rgba(167,139,250,.28), transparent 60%),
+        radial-gradient(ellipse 800px 700px at 8% 55%, rgba(167,139,250,.22), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 50% 100%, rgba(139,102,246,.25), transparent 65%),
+        linear-gradient(165deg, #f7f5fc 0%, #efeaf9 45%, #e6def6 100%);
+      color: var(--ink);
+    }
+    .content { position: relative; z-index: 2; height: 100%;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 54px 56px 36px; }
+
+    /* ---- top pills ---- */
+    .pills { display: flex; gap: 22px; }
+    .pill { display: flex; align-items: center; gap: 12px;
+      background: rgba(255,255,255,.9); border: 2px solid rgba(124,58,237,.25);
+      border-radius: 999px; padding: 14px 30px;
+      font-size: 31px; font-weight: 700; color: #2b2530;
+      box-shadow: 0 6px 18px -8px rgba(109,40,217,.25); }
+    .pill .ic { width: 36px; height: 36px; flex: none; }
+
+    /* ---- title ---- */
+    .title { margin-top: 38px; text-align: center;
+      font-weight: 900; font-size: 112px; line-height: 1.24; letter-spacing: .01em;
+      color: var(--ink); }
+    .title .red { color: var(--red); }
+    .title .tpurple { color: var(--purple); }
+    .title .l2 { position: relative; display: inline-block; }
+    .title .swoosh { position: absolute; left: 34%; bottom: -16px; width: 64%; height: 22px; }
+    .title .swoosh path { stroke: var(--purple); stroke-width: 14; fill: none;
+      stroke-linecap: round; }
+
+    /* ---- logo hero ---- */
+    .hero { position: relative; margin-top: 42px; width: 100%;
+      display: flex; align-items: center; justify-content: center; gap: 56px; }
+    .ring { position: absolute; left: 50%; top: 58%; width: 720px; height: 220px;
+      transform: translate(-50%,-50%) rotate(-6deg);
+      border-radius: 50%; z-index: 0;
+      border: 3px solid rgba(255,255,255,.9);
+      box-shadow: 0 0 40px rgba(167,139,250,.35), inset 0 0 40px rgba(167,139,250,.25);
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0 30%, black 55% 100%); }
+    .app-card { position: relative; z-index: 2; width: 212px; height: 212px;
+      border-radius: 48px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 30px 60px -20px rgba(60,30,120,.35), 0 0 0 1px rgba(255,255,255,.7); }
+    .app-card.xhs { background: linear-gradient(160deg, #ff3b55, #ef1836);
+      color: #fff; font-weight: 900; font-size: 62px; letter-spacing: .02em; }
+    .app-card.ob { background: linear-gradient(160deg, #ffffff, #f1ecfd); }
+    .app-card.ob svg { width: 132px; height: 132px; }
+    .hero .plus { z-index: 2; font-weight: 900; font-size: 92px; color: var(--purple);
+      line-height: 1; }
+    .spark { position: absolute; z-index: 3; }
+    .spark svg { display: block; }
+    .spark path { fill: var(--purple-light); }
+    .spark.s1 { left: 30px; top: -6px; }
+    .spark.s2 { right: 46px; top: 10px; }
+    .spark.s2 path { fill: var(--purple); }
+    .spark.s3 { right: 8px; bottom: -8px; }
+    .spark.s4 { left: 72px; bottom: -20px; }
+    .spark.s4 path { fill: #c4b5fd; }
+
+    /* ---- tagline ---- */
+    .tagline { margin-top: 40px; font-size: 42px; font-weight: 700; color: #232028;
+      letter-spacing: .01em; }
+    .tagline .red { color: var(--red); }
+    .tagline .purple { color: var(--purple); font-weight: 900; }
+    .tagline .gap { display: inline-block; width: 28px; }
+
+    /* ---- MacBook mockup ---- */
+    .laptop { position: relative; margin-top: 34px; width: 100%; z-index: 2; }
+    .lap-screen { position: relative; margin: 0 116px; background: #101014;
+      border-radius: 22px 22px 0 0; padding: 14px 14px 16px;
+      box-shadow: 0 40px 80px -30px rgba(50,25,100,.45); }
+    .lap-cam { position: absolute; top: 6px; left: 50%; transform: translateX(-50%);
+      width: 8px; height: 8px; border-radius: 50%; background: #2c2c33; }
+    .lap-shot { border-radius: 12px; overflow: hidden; background: #f6f6f8;
+      aspect-ratio: 16 / 10; }
+    .lap-shot img { width: 100%; height: 100%; object-fit: cover; object-position: center;
+      display: block; }
+    .lap-base { position: relative; margin: 0 86px; height: 24px;
+      background: linear-gradient(#eceef2, #c3c6cf 70%, #9ea1ab);
+      border-radius: 2px 2px 14px 14px; }
+    .lap-base::before { content: ''; position: absolute; left: 50%; top: 0;
+      transform: translateX(-50%); width: 150px; height: 10px;
+      background: #aab0ba; border-radius: 0 0 14px 14px; }
+
+    /* ---- bubble sticker ---- */
+    .bubble { position: absolute; left: 10px; bottom: 118px; z-index: 5;
+      background: linear-gradient(150deg, #8b5cf6, #6d28d9);
+      border-radius: 30px; padding: 26px 34px 28px; text-align: center;
+      box-shadow: 0 24px 50px -18px rgba(80,40,160,.55);
+      transform: rotate(-3deg); }
+    .bubble::after { content: ''; position: absolute; left: 54px; bottom: -18px;
+      width: 0; height: 0; border-left: 16px solid transparent;
+      border-right: 16px solid transparent; border-top: 22px solid #6d28d9; }
+    .bubble .heart { position: absolute; top: -54px; left: 50%; transform: translateX(-50%);
+      width: 84px; height: 84px; border-radius: 50%; background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 10px 24px -10px rgba(80,40,160,.4); }
+    .bubble .heart svg { width: 44px; height: 44px; fill: var(--purple); }
+    .bubble .b1 { color: #fff; font-size: 33px; font-weight: 700; letter-spacing: .02em; }
+    .bubble .b2 { margin-top: 10px; color: #fff; font-size: 44px; font-weight: 900;
+      background: #5b21b6; border-radius: 14px; padding: 6px 18px; display: inline-block; }
+
+    /* ---- footer ---- */
+    .foot { margin-top: auto; width: 100%; display: flex; align-items: center;
+      justify-content: space-between; }
+    .foot .aud { display: flex; align-items: center; gap: 18px;
+      font-size: 38px; font-weight: 700; color: #232028; }
+    .foot .aud .dot-ic { width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(124,58,237,.14); display: flex; align-items: center;
+      justify-content: center; }
+    .foot .aud .dot-ic svg { width: 30px; height: 30px; stroke: var(--purple); }
+    .foot .page { background: var(--purple); color: #fff; font-weight: 700;
+      font-size: 30px; border-radius: 999px; padding: 10px 30px; }
+  </style>
+</head>
+<body>
+  <section class="poster" id="xhs-01">
+    <div class="content">
+
+      <!-- 顶部胶囊 -->
+      <div class="pills">
+        <div class="pill">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.3 2.3 4.7-4.8"/></svg>
+          本地优先
+        </div>
+        <div class="pill">
+          <svg class="ic" viewBox="0 0 24 24"><path fill="#7C3AED" d="M9.6 14c.6-.2 1.6-.5 2.7-.5-.7-1.7-.8-3.2-.7-4.6.2-1.6.7-2.8 1.2-4 .1-.2.2-.4.3-.6.2-.3.3-.6.4-.9.2-.5.4-.9.5-1.3.1-.4.1-.7 0-1-.1-.3-.3-.7-.7-1.1-.5-.1-1.1 0-1.5.4L6.9 4.9c-.3.2-.4.6-.5 1l-.4 2.8c.7.6 2.3 2.3 3.3 4.7.1.2.2.4.3.6z"/><path fill="#7C3AED" d="M5.9 9.9c0 .1-.1.2-.1.3l-2.6 5.8c-.3.6-.1 1.4.3 1.8l4.1 4.3c.4.4 1 .7 1.6.6-.2-.3-.5-.7-.7-1.2-.4-.7-.6-1.7-.5-2.7.2-.9.7-1.7 1.2-2.3l.5-.5c-.1-.2-.1-.4-.2-.6-.9-2.1-2.4-3.7-3-4.2-.4-.3-.6-.8-.6-1.3z"/><path fill="#7C3AED" d="M10.2 21.7c.9.2 2.1.4 3.4.3 1-.1 1.9-.3 2.7-.8l-.2-.6c-.6-1.4-1.3-2.8-2.4-3.6-.5.1-1.2.2-1.8.4-.8.3-1.4.6-1.8 1-.3.3-.1 1 .2 1.6.1.3.3.6.5.8l.2.3.1.1c.1.2.2.3.3.5z"/><path fill="#7C3AED" d="M17.4 20.6c.6-.6.9-1.5.8-2.3l-.6-9.2c0-.4-.2-.8-.4-1l-1.7-1.8-.1.2c-.1.3-.3.7-.5 1l-.3.6c-.5 1.1-1 2.2-1.1 3.4-.1 1.2.1 2.7.8 4.5 1.2.8 2 2.4 2.6 3.6.2.4.3.8.4 1.2z"/></svg>
+          真实界面实拍
+        </div>
+        <div class="pill">
+          <svg class="ic" viewBox="0 0 24 24"><path fill="#7C3AED" d="m12 2.5 2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 16.3l-5.6 3.3 1.4-6.3L3 9l6.4-.6z"/></svg>
+          建议收藏
+        </div>
+      </div>
+
+      <!-- 大标题 -->
+      <h1 class="title">
+        <span class="red">小红书</span>收藏<br>
+        <span class="l2">秒变<span class="tpurple">第二大脑</span>
+          <svg class="swoosh" viewBox="0 0 200 24"><path d="M8 16 C 60 4, 150 4, 192 14"/></svg>
+        </span>
+      </h1>
+
+      <!-- 双 logo -->
+      <div class="hero">
+        <div class="ring"></div>
+        <div class="spark s1"><svg width="46" height="46" viewBox="0 0 24 24"><path d="M12 1.8 14 9.9l8.2 2.1L14 14.1 12 22.2 10 14.1 1.8 12 10 9.9z"/></svg></div>
+        <div class="spark s2"><svg width="30" height="30" viewBox="0 0 24 24"><path d="M12 1.8 14 9.9l8.2 2.1L14 14.1 12 22.2 10 14.1 1.8 12 10 9.9z"/></svg></div>
+        <div class="spark s3"><svg width="38" height="38" viewBox="0 0 24 24"><path d="M12 1.8 14 9.9l8.2 2.1L14 14.1 12 22.2 10 14.1 1.8 12 10 9.9z"/></svg></div>
+        <div class="spark s4"><svg width="26" height="26" viewBox="0 0 24 24"><path d="M12 1.8 14 9.9l8.2 2.1L14 14.1 12 22.2 10 14.1 1.8 12 10 9.9z"/></svg></div>
+        <div class="app-card xhs">小红书</div>
+        <div class="plus">+</div>
+        <div class="app-card ob">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/>
+            </linearGradient></defs>
+            <path fill="url(#obg)" d="M9.643 14.012c.615-.183 1.605-.465 2.745-.534-.684-1.725-.849-3.235-.716-4.579.153-1.552.7-2.847 1.234-3.95.114-.235.223-.454.328-.664.149-.297.289-.577.42-.86.217-.47.378-.885.46-1.27.08-.38.08-.719-.014-1.044-.095-.325-.297-.675-.681-1.06a1.6 1.6 0 00-1.475.36l-4.95 4.453a1.602 1.602 0 00-.512.952l-.427 2.83c.67.592 2.327 2.317 3.335 4.71.09.213.174.432.253.656zM5.855 9.937c-.024.1-.057.197-.099.29L3.14 16.058a1.602 1.602 0 00.313 1.772l4.117 4.294c.427.446 1.037.65 1.638.56-.23-.313-.494-.708-.71-1.157-.36-.744-.632-1.687-.464-2.719.153-.936.677-1.706 1.15-2.263a8.94 8.94 0 01.507-.545 9.02 9.02 0 00-.219-.567c-.898-2.135-2.393-3.7-2.997-4.242a1.61 1.61 0 01-.62-1.254zm4.323 11.732c.9.223 2.089.407 3.36.334a6.284 6.284 0 002.687-.775 25.72 25.72 0 00-.243-.62c-.552-1.36-1.34-2.836-2.41-3.55-.526.058-1.176.192-1.799.402-.788.267-1.428.62-1.775 1.017-.297.34-.145.994.164 1.63.148.307.318.586.457.795.077.116.144.209.194.276l.062.081.001.002c.107.135.223.271.302.408zm7.196-1.096c.564-.628.86-1.465.808-2.323l-.556-9.238a1.6 1.6 0 00-.442-1.019l-1.71-1.79c-.031.076-.062.15-.095.221-.146.318-.313.65-.472.966l-.309.623c-.51 1.055-.964 2.155-1.09 3.435-.121 1.228.055 2.687.842 4.481 1.245.784 2.048 2.365 2.556 3.617.171.42.318.83.44 1.203z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- 金句 -->
+      <p class="tagline">灵感在<span class="red">小红书</span>刷到<span class="gap"></span>知识在 <span class="purple">Obsidian</span> 长大</p>
+
+      <!-- MacBook mockup -->
+      <div class="laptop">
+        <div class="lap-screen">
+          <div class="lap-cam"></div>
+          <div class="lap-shot"><img src="demo-screenshot.png" alt="小红书收藏在 Obsidian 中的爆款画廊视图"></div>
+        </div>
+        <div class="lap-base"></div>
+      </div>
+
+      <!-- 气泡贴纸 -->
+      <div class="bubble">
+        <div class="heart"><svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.7-10-9.3C.5 8 2.4 4.6 5.8 4.1c2-.3 4 .6 5.2 2.2 1.2-1.6 3.2-2.5 5.2-2.2 3.4.5 5.3 3.9 3.8 7.6C17.5 16.3 12 21 12 21z"/></svg></div>
+        <div class="b1">收藏 / 点赞 / 图文 / 视频</div><br>
+        <div class="b2">再也不会刷丢了</div>
+      </div>
+
+      <!-- 底部 -->
+      <div class="foot">
+        <div class="aud">
+          <span class="dot-ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.2 2.3 2.3 4.7-4.8"/></svg></span>
+          适合内容创作者 / 知识管理 / AI 知识库
+        </div>
+        <div class="page">1/8</div>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

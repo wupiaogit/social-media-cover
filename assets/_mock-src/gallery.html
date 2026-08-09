@@ -1,0 +1,35 @@
+<!doctype html><meta charset=utf-8><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;background:#1e1e22;color:#e8e8ec;width:1600px;height:1000px;display:flex}
+.side{width:210px;background:#191a1e;border-right:1px solid #2c2d33;padding:16px 12px}
+.side .g{font-size:11px;letter-spacing:.14em;color:#6c6d78;margin:14px 0 8px 8px}
+.side .i{font-size:14px;color:#a9aab5;padding:7px 10px;border-radius:6px;margin-bottom:3px}
+.side .i.on{background:#2a2b33;color:#fff}
+.main{flex:1;padding:16px 20px}
+.bar{display:flex;align-items:center;gap:14px;font-size:13px;color:#8c8d99;margin-bottom:14px}
+.bar b{color:#e8e8ec;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:13px}
+.c{background:#26272d;border:1px solid #33343c;border-radius:10px;overflow:hidden}
+.c .th{height:118px}.c .b{padding:9px 10px}
+.c .t{font-size:12.5px;font-weight:700;line-height:1.32;height:33px;overflow:hidden}
+.c .m{margin-top:7px;font-size:10.5px;color:#7d7e8a}.c .m span{color:#a9aab5}
+</style><body>
+<div class=side><div class=g>VAULT</div>
+<div class=i>00-Inbox</div><div class=i>01-Projects</div><div class="i on">03-Resources</div>
+<div class=i>Media</div><div class=i>Transcripts</div><div class=i>Clippings</div></div>
+<div class=main><div class=bar><b>知识库 · 画廊</b><span>128 个结果</span><span>排序</span><span>筛选</span><span>属性</span></div>
+<div class=grid id=g></div></div>
+<script>
+const P=[['#6d5efc','#a78bfa'],['#ef4d6b','#ff8f6b'],['#0ea5a5','#38d9c0'],['#f0a13a','#ffd166'],['#3b82f6','#60a5fa'],
+['#8b5cf6','#c4b5fd'],['#e05252','#f0806a'],['#10b981','#6ee7b7'],['#f43f5e','#fb923c'],['#0284c7','#38bdf8'],
+['#7c3aed','#a78bfa'],['#db2777','#f472b6'],['#059669','#34d399'],['#d97706','#fbbf24'],['#2563eb','#93c5fd'],
+['#9333ea','#d8b4fe'],['#dc2626','#fca5a5'],['#0d9488','#5eead4'],['#ea580c','#fdba74'],['#1d4ed8','#7dd3fc']];
+const T=['一次把输入源整理清楚','长内容的要点提炼方法','为什么收藏夹会变成黑洞','把碎片笔记连成网络','检索比整理更重要',
+'元数据该怎么设计','本地优先的取舍','动手之前先想清流程','标签体系的三个层级','复盘模板的最小结构',
+'输入和输出的比例','什么内容值得留下','双链不是万能的','归档的正确时机','命名规则决定检索效率',
+'从收藏到引用的距离','把长文压成三句话','一个人的知识管理','工具换来换去的代价','先建结构还是先写'];
+const K=['方法','工具','思考','流程','复盘'];
+let h='';for(let i=0;i<20;i++){const p=P[i];
+h+='<div class=c><div class=th style="background:linear-gradient(140deg,'+p[0]+','+p[1]+')"></div><div class=b><div class=t>'+T[i]+'</div><div class=m>分类 <span>'+K[i%5]+'</span><br>时长 <span>'+(12+i*5)+' 分</span></div></div></div>';}
+document.getElementById('g').innerHTML=h;
+</script>

@@ -1,0 +1,5 @@
+{
+  "name": "xhs-product-poster",
+  "version": "1.0.0",
+  "description": "Generate Xiaohongshu product covers as 1080x1440 PNGs by writing HTML and screenshotting with Chrome, instead of AI image generation. Ships 6 style templates and a device mockup library (MacBook / iPad / iPhone)."
+}

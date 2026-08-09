@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>风格A · 能力标签墙</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@500;700;900&display=swap">
+  <style>
+    :root { --red:#FF2442; --purple:#7C3AED; --ink:#1a1720; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { background:#333; font-family: "Noto Sans SC","PingFang SC","Microsoft YaHei","Source Han Sans SC","Hiragino Sans GB",system-ui,sans-serif;
+           -webkit-font-smoothing:antialiased; }
+    .poster { position:relative; width:1080px; height:1440px; overflow:hidden;
+      background:
+        radial-gradient(ellipse 700px 500px at 12% 6%, rgba(255,36,66,.07), transparent 60%),
+        radial-gradient(ellipse 700px 500px at 90% 90%, rgba(124,58,237,.10), transparent 60%),
+        #faf9fc;
+      color:var(--ink); }
+    /* 点阵底纹 */
+    .dots { position:absolute; inset:0; opacity:.5;
+      background-image:radial-gradient(rgba(26,23,32,.10) 2px, transparent 2px);
+      background-size:34px 34px; }
+    .content { position:relative; z-index:2; height:100%; display:flex;
+      flex-direction:column; align-items:center; padding:64px 56px 44px; }
+
+    .brandrow { display:flex; align-items:center; gap:20px; }
+    .mini { width:76px; height:76px; border-radius:18px; display:flex;
+      align-items:center; justify-content:center;
+      box-shadow:0 10px 24px -10px rgba(30,20,60,.35); }
+    .mini.xhs { background:var(--red); color:#fff; font-weight:900; font-size:24px; }
+    .mini.ob { background:#fff; }
+    .mini.ob svg { width:46px; height:46px; }
+    .arrow { font-size:44px; font-weight:900; color:var(--ink); }
+
+    .title { margin-top:44px; text-align:center; font-weight:900;
+      font-size:112px; line-height:1.22; letter-spacing:.01em; }
+    .title .red { color:var(--red); }
+    .title .hl { position:relative; display:inline-block; }
+    .title .hl::after { content:''; position:absolute; left:-2%; right:-2%;
+      bottom:6px; height:34px; background:rgba(124,58,237,.22); z-index:-1;
+      transform:rotate(-1deg); }
+
+    .count { margin-top:26px; display:flex; align-items:center; gap:16px;
+      font-size:34px; font-weight:700; color:#544d63; }
+    .count b { color:var(--purple); font-size:44px; }
+
+    /* 标签墙 */
+    .wall { margin-top:20px; width:100%; display:flex; flex-wrap:wrap;
+      justify-content:center; align-content:center; gap:36px 26px; flex:1; }
+    .tag { display:inline-flex; align-items:center; gap:14px; border-radius:22px;
+      padding:30px 42px; font-weight:900; font-size:52px; line-height:1;
+      box-shadow:0 16px 30px -16px rgba(30,20,60,.35); }
+    .tag small { font-size:28px; font-weight:700; opacity:.75; }
+    .t-red    { background:var(--red); color:#fff; transform:rotate(-3deg); }
+    .t-purple { background:var(--purple); color:#fff; transform:rotate(2deg); }
+    .t-ink    { background:var(--ink); color:#fff; transform:rotate(-2deg); }
+    .t-white  { background:#fff; color:var(--ink); border:3px solid #e4e0ee; transform:rotate(2.5deg); }
+    .t-lav    { background:#efe9fd; color:var(--purple); transform:rotate(-1.5deg); }
+    .t-rose   { background:#ffe9ec; color:var(--red); transform:rotate(1.5deg); }
+    .tag .dot { width:14px; height:14px; border-radius:50%; background:currentColor; opacity:.6; }
+
+    .foot { width:100%; display:flex; justify-content:space-between; align-items:center; }
+    .foot .cap { font-size:30px; font-weight:700; color:#544d63; }
+    .foot .cap b { color:var(--purple); }
+    .foot .page { background:var(--ink); color:#fff; font-weight:700; font-size:28px;
+      border-radius:999px; padding:8px 26px; }
+  </style>
+</head>
+<body>
+  <section class="poster">
+    <div class="dots"></div>
+    <div class="content">
+      <div class="brandrow">
+        <div class="mini xhs">小红书</div>
+        <span class="arrow">→</span>
+        <div class="mini ob"><svg viewBox="0 0 24 24"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#6d28d9"/></linearGradient></defs><path fill="url(#g)" d="M9.643 14.012c.615-.183 1.605-.465 2.745-.534-.684-1.725-.849-3.235-.716-4.579.153-1.552.7-2.847 1.234-3.95.114-.235.223-.454.328-.664.149-.297.289-.577.42-.86.217-.47.378-.885.46-1.27.08-.38.08-.719-.014-1.044-.095-.325-.297-.675-.681-1.06a1.6 1.6 0 00-1.475.36l-4.95 4.453a1.602 1.602 0 00-.512.952l-.427 2.83c.67.592 2.327 2.317 3.335 4.71.09.213.174.432.253.656zM5.855 9.937c-.024.1-.057.197-.099.29L3.14 16.058a1.602 1.602 0 00.313 1.772l4.117 4.294c.427.446 1.037.65 1.638.56-.23-.313-.494-.708-.71-1.157-.36-.744-.632-1.687-.464-2.719.153-.936.677-1.706 1.15-2.263a8.94 8.94 0 01.507-.545 9.02 9.02 0 00-.219-.567c-.898-2.135-2.393-3.7-2.997-4.242a1.61 1.61 0 01-.62-1.254zm4.323 11.732c.9.223 2.089.407 3.36.334a6.284 6.284 0 002.687-.775 25.72 25.72 0 00-.243-.62c-.552-1.36-1.34-2.836-2.41-3.55-.526.058-1.176.192-1.799.402-.788.267-1.428.62-1.775 1.017-.297.34-.145.994.164 1.63.148.307.318.586.457.795.077.116.144.209.194.276l.062.081.001.002c.107.135.223.271.302.408zm7.196-1.096c.564-.628.86-1.465.808-2.323l-.556-9.238a1.6 1.6 0 00-.442-1.019l-1.71-1.79c-.031.076-.062.15-.095.221-.146.318-.313.65-.472.966l-.309.623c-.51 1.055-.964 2.155-1.09 3.435-.121 1.228.055 2.687.842 4.481 1.245.784 2.048 2.365 2.556 3.617.171.42.318.83.44 1.203z"/></svg></div>
+      </div>
+
+      <h1 class="title">
+        <span class="red">小红书</span>收藏<br>
+        <span class="hl">还能这么玩？</span>
+      </h1>
+
+      <div class="count">这个 Obsidian 插件，一次给你 <b>8</b> 个能力</div>
+
+      <div class="wall">
+        <span class="tag t-red"><span class="dot"></span>一键落地本地</span>
+        <span class="tag t-white"><span class="dot"></span>图片永不失效</span>
+        <span class="tag t-purple"><span class="dot"></span>AI 智能归类</span>
+        <span class="tag t-lav"><span class="dot"></span>双链图谱联动</span>
+        <span class="tag t-ink"><span class="dot"></span>元数据全保留</span>
+        <span class="tag t-rose"><span class="dot"></span>多账号支持</span>
+        <span class="tag t-purple"><span class="dot"></span>断网也能看</span>
+        <span class="tag t-white"><span class="dot"></span>免费收 100 篇</span>
+      </div>
+
+      <div class="foot">
+        <span class="cap">每一条收藏，都进你的 <b>Obsidian</b></span>
+        <span class="page">1/3</span>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
