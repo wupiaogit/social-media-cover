@@ -34,24 +34,41 @@
 
 - **ImageMagick 7**（`magick`）—— 裁切截图、遮盖敏感信息。做真实 mockup 基本都要用
 
-## 快速开始
+## 安装
+
+### 方式一 —— 一行搞定（推荐）
 
 ```bash
-git clone https://github.com/EwingYangs/xhs-product-poster.git
-cd xhs-product-poster
-
-# 先渲染一个自带模板，确认环境没问题
-bash scripts/render.sh assets/template-cover.html /tmp/out.png
-open /tmp/out.png
+npx skills add EwingYangs/xhs-product-poster
 ```
 
-作为 agent skill 使用，复制到 skills 目录：
+### 方式二 —— Claude Code 插件市场
+
+在 Claude Code 里执行：
+
+```
+/plugin marketplace add EwingYangs/xhs-product-poster
+/plugin install xhs-product-poster@xhs-product-poster
+```
+
+或者只跑第一行，然后在菜单里选 **Browse and install plugins** 点装。
+
+### 方式三 —— 手动
 
 ```bash
-cp -r xhs-product-poster ~/.claude/skills/
+git clone https://github.com/EwingYangs/xhs-product-poster.git ~/.claude/skills/xhs-product-poster
 ```
 
-然后直接让 agent 做封面，它会挑模板、把你的截图放进设备 mockup、渲染出图。
+任何能读 `SKILL.md` 的 agent 都能用 —— Claude Code、Codex、Cursor 或你自己的框架。其他工具直接把目录指过去，或把 `SKILL.md` 内容塞进 prompt 即可。
+
+### 验证环境
+
+```bash
+cd ~/.claude/skills/xhs-product-poster
+bash scripts/render.sh assets/template-cover.html /tmp/out.png && open /tmp/out.png
+```
+
+能出一张 1080×1440 的图就说明环境没问题。之后直接让 agent 做封面，它会挑模板、把你的截图放进设备 mockup、渲染出图。
 
 ## 做自己的封面
 

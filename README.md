@@ -34,24 +34,41 @@ The tradeoff: it burns more tokens than a text-to-image call, because the agent 
 
 - **ImageMagick 7** (`magick`) — cropping screenshots and masking sensitive regions. You'll want it for almost any real mockup
 
-## Quick start
+## Installation
+
+### Option 1 — one line (recommended)
 
 ```bash
-git clone https://github.com/EwingYangs/xhs-product-poster.git
-cd xhs-product-poster
-
-# render every bundled template to check your setup
-bash scripts/render.sh assets/template-cover.html /tmp/out.png
-open /tmp/out.png
+npx skills add EwingYangs/xhs-product-poster
 ```
 
-To use it as an agent skill, copy the folder into your skills directory:
+### Option 2 — Claude Code plugin marketplace
+
+In Claude Code:
+
+```
+/plugin marketplace add EwingYangs/xhs-product-poster
+/plugin install xhs-product-poster@xhs-product-poster
+```
+
+Or run `/plugin marketplace add EwingYangs/xhs-product-poster`, then pick **Browse and install plugins** from the menu.
+
+### Option 3 — manual
 
 ```bash
-cp -r xhs-product-poster ~/.claude/skills/
+git clone https://github.com/EwingYangs/xhs-product-poster.git ~/.claude/skills/xhs-product-poster
 ```
 
-Then ask your agent for a product cover — it will pick a template, drop your screenshot into the device mockup, and render.
+Works with any agent that reads `SKILL.md` — Claude Code, Codex, Cursor, or your own harness. For other tools, point them at the folder or copy `SKILL.md` into your prompt.
+
+### Verify your setup
+
+```bash
+cd ~/.claude/skills/xhs-product-poster
+bash scripts/render.sh assets/template-cover.html /tmp/out.png && open /tmp/out.png
+```
+
+If you get a 1080×1440 poster, you're good. Then just ask your agent for a product cover — it will pick a template, drop your screenshot into the device mockup, and render.
 
 ## Making your own cover
 

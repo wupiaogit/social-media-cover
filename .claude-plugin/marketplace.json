@@ -1,0 +1,18 @@
+{
+  "name": "xhs-product-poster",
+  "owner": {
+    "name": "EwingYangs"
+  },
+  "metadata": {
+    "description": "Generate Xiaohongshu (RedNote) product covers as 1080x1440 PNGs by writing HTML and screenshotting with Chrome — not AI image generation. Exact Chinese text, precise logos, real product screenshots inside device mockups."
+  },
+  "plugins": [
+    {
+      "name": "xhs-product-poster",
+      "description": "小红书产品封面生成：写 HTML 再截图，中文零错字、logo 精确、可嵌真实产品截图。含 6 个风格模板与 MacBook/iPad/iPhone mockup 库。",
+      "source": "./",
+      "strict": false,
+      "skills": ["./"]
+    }
+  ]
+}
