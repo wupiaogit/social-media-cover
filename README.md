@@ -136,3 +136,10 @@ The bundled `SKILL.md` encodes rules learned from getting posts rejected:
 ## License
 
 MIT © EwingYangs
+
+
+---
+
+## 飘哥撩 AI 扩展模板
+
+见 [`assets/piaoge/`](./assets/piaoge/)：纸感提问 / 深色块面 / 瑞士工具风。纯 HTML 截图出图，无 AI 生图 API。

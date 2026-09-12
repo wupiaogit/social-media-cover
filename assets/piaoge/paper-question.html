@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>doodle cover v3</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #222; padding: 40px; }
+  .poster {
+    width: 1080px;
+    height: 1440px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #f6f4ef 0%, #efece6 100%);
+    font-family: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #2c2540;
+  }
+  .poster::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.11;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  .accent { position: absolute; stroke: #9b8bb8; fill: none; color: #9b8bb8; }
+
+  /* floating constellation of small marks — not L/R/bottom triad */
+  .orbit {
+    left: 180px;
+    top: 220px;
+    width: 720px;
+    height: 720px;
+    opacity: 0.95;
+  }
+
+  .title-wrap {
+    position: absolute;
+    left: 100px;
+    right: 100px;
+    top: 520px;
+    text-align: center;
+  }
+  .title {
+    font-size: 72px;
+    font-weight: 900;
+    line-height: 1.35;
+    letter-spacing: 0.02em;
+    color: #2c2540;
+    position: relative;
+    z-index: 2;
+  }
+  /* soft underline wash behind second line only — abstract blob, not ruler */
+  .wash {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -40%);
+    width: 620px;
+    height: 120px;
+    background: rgba(155, 139, 184, 0.14);
+    border-radius: 999px;
+    filter: blur(2px);
+    z-index: 1;
+  }
+</style>
+</head>
+<body>
+  <section class="poster" id="cover">
+    <!-- one continuous decorative motif: dashed orbit + scattered ticks around title area -->
+    <svg class="accent orbit" viewBox="0 0 720 720">
+      <!-- incomplete dashed ring -->
+      <circle cx="360" cy="360" r="268" stroke-width="2.4" stroke-dasharray="10 14" opacity="0.85"/>
+      <!-- break accents as short arcs instead of corner icons -->
+      <path d="M120 250 A268 268 0 0 1 200 150" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+      <path d="M560 140 A268 268 0 0 1 640 230" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+      <path d="M620 520 A268 268 0 0 1 500 620" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+      <!-- three tiny dots along ring — rhythm, not triad corners -->
+      <circle cx="150" cy="400" r="5" fill="#9b8bb8" stroke="none"/>
+      <circle cx="360" cy="95" r="5" fill="#9b8bb8" stroke="none"/>
+      <circle cx="575" cy="400" r="5" fill="#9b8bb8" stroke="none"/>
+      <!-- small slash cluster near ring, mid-left -->
+      <path d="M95 330 l28 -18" stroke-width="3.2" stroke-linecap="round"/>
+      <path d="M102 348 l28 -18" stroke-width="3.2" stroke-linecap="round" opacity="0.7"/>
+    </svg>
+
+    <div class="title-wrap">
+      <div class="wash"></div>
+      <h1 class="title">Grok Bot和ChatGPT<br>Claude差在哪？</h1>
+    </div>
+  </section>
+</body>
+</html>
